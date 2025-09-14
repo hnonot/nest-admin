@@ -12,49 +12,49 @@
   </Dropdown>
 </template>
 <script lang="ts" setup>
-  import { ref, watchEffect, unref, computed } from 'vue';
-  import { Dropdown, Menu } from 'ant-design-vue';
-  import { useLocale } from '@/locales/useLocale';
-  import { type LocaleType, localeList } from '@/locales/config';
-  import { SvgIcon } from '@/components/basic/icon';
+import { ref, watchEffect, unref, computed } from "vue";
+import { Dropdown, Menu } from "ant-design-vue";
+import { useLocale } from "@/locales/useLocale";
+import { type LocaleType, localeList } from "@/locales/config";
+import { SvgIcon } from "@/components/basic/icon";
 
-  const props = defineProps({
-    /**
-     * Whether to display text
-     */
-    showText: { type: Boolean, default: true },
-    /**
-     * Whether to refresh the interface when changing
-     */
-    reload: { type: Boolean },
-  });
+const props = defineProps({
+  /**
+   * Whether to display text
+   */
+  showText: { type: Boolean, default: true },
+  /**
+   * Whether to refresh the interface when changing
+   */
+  reload: { type: Boolean },
+});
 
-  const selectedKeys = ref<string[]>([]);
+const selectedKeys = ref<string[]>([]);
 
-  const { changeLocale, getLocale } = useLocale();
+const { changeLocale, getLocale } = useLocale();
 
-  const getLocaleText = computed(() => {
-    const key = selectedKeys.value[0];
-    if (!key) {
-      return '';
-    }
-    return localeList.find((item) => item.lang === key)?.label;
-  });
-
-  watchEffect(() => {
-    selectedKeys.value = [unref(getLocale)];
-  });
-
-  async function toggleLocale(lang: LocaleType | string) {
-    await changeLocale(lang as LocaleType);
-    selectedKeys.value = [lang as string];
-    props.reload && location.reload();
+const getLocaleText = computed(() => {
+  const key = selectedKeys.value[0];
+  if (!key) {
+    return "";
   }
+  return localeList.find((item) => item.lang === key)?.label;
+});
 
-  function handleMenuClick({ key }) {
-    if (unref(getLocale) === key) {
-      return;
-    }
-    toggleLocale(key as string);
+watchEffect(() => {
+  selectedKeys.value = [unref(getLocale)];
+});
+
+async function toggleLocale(lang: LocaleType | string) {
+  await changeLocale(lang as LocaleType);
+  selectedKeys.value = [lang as string];
+  props.reload && location.reload();
+}
+
+function handleMenuClick({ key }) {
+  if (unref(getLocale) === key) {
+    return;
   }
+  toggleLocale(key as string);
+}
 </script>

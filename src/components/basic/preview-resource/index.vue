@@ -3,35 +3,36 @@
 </template>
 
 <script setup lang="ts">
-  defineOptions({
-    name: 'preview-resource',
-  });
+defineOptions({
+  name: "preview-resource",
+});
 
-  defineProps({
-    url: {
-      type: String,
-    },
-    type: {
-      type: String,
-    },
-  });
+defineProps({
+  url: {
+    type: String,
+  },
+  type: {
+    type: String,
+  },
+});
 
-  // const allowTypes = [
-  //   'image/',
-  //   'video/',
-  //   'audio/',
-  //   'text/',
-  //   '/xml',
-  //   '/json',
-  //   '/javascript',
-  //   '/pdf',
-  // ];
+// const allowTypes = [
+//   'image/',
+//   'video/',
+//   'audio/',
+//   'text/',
+//   '/xml',
+//   '/json',
+//   '/javascript',
+//   '/pdf',
+// ];
 
-  // const sandbox = computed(() => {
-  //   const isAllowType = allowTypes.some((n) => props.type?.includes(n));
-  //   if (isAllowType) {
-  //     return '';
-  //   }
-  //   return 'allow-downloads: false';
-  // });
+// const sandbox = computed(() => {
+//   const isAllowType = allowTypes.some((n) => props.type?.includes(n));
+//   if (isAllowType) {
+//     return '';
+//   }
+//   return 'allow-downloads: false';
+// });
+var a = 1;
 </script>
