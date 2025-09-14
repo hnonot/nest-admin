@@ -138,5 +138,13 @@
     "peerDependencyRules": {
       "allowedVersions": {}
     }
+  },
+  "prettier": {
+    "semi": true,
+    "printWidth": 100,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "proseWrap": "never"
   }
 }

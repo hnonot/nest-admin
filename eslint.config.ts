@@ -34,6 +34,10 @@ export default defineConfig([
     rules: {
       // 通用 JS/TS 规则
       "no-var": "error",
+      // 👇 允许使用 any 类型
+      "@typescript-eslint/no-explicit-any": "off",
+      "no-duplicate-imports": "off",
+      "@typescript-eslint/no-duplicate-imports": ["error"],
       "prefer-const": [
         "error",
         {
@@ -87,6 +91,12 @@ export default defineConfig([
 
   // TypeScript 推荐规则
   tseslint.configs.recommended,
+  {
+    files: ["**/*.{ts,tsx}"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
 
   // Vue 基础规则
   pluginVue.configs["flat/essential"],
