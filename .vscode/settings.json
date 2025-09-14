@@ -1,67 +1,25 @@
 {
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  // Disable the default formatter, use eslint instead
-  "prettier.enable": false,
-  "editor.formatOnSave": false,
-  // Auto fix
+  // 启用 Prettier 插件
+  "prettier.enable": true,
+  // 启用保存时自动格式化
+  "editor.formatOnSave": true,
+  // 启用 ESLint 自动修复
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
+    "source.fixAll.eslint": "always",
     "source.organizeImports": "never"
   },
-  // Silent the stylistic rules in you IDE, but still auto fix them
-  "eslint.rules.customizations": [
-    {
-      "rule": "style/*",
-      "severity": "off",
-      "fixable": true
-    },
-    {
-      "rule": "format/*",
-      "severity": "off",
-      "fixable": true
-    },
-    {
-      "rule": "*-indent",
-      "severity": "off",
-      "fixable": true
-    },
-    {
-      "rule": "*-spacing",
-      "severity": "off",
-      "fixable": true
-    },
-    {
-      "rule": "*-spaces",
-      "severity": "off",
-      "fixable": true
-    },
-    {
-      "rule": "*-order",
-      "severity": "off",
-      "fixable": true
-    },
-    {
-      "rule": "*-dangle",
-      "severity": "off",
-      "fixable": true
-    },
-    {
-      "rule": "*-newline",
-      "severity": "off",
-      "fixable": true
-    },
-    {
-      "rule": "*quotes",
-      "severity": "off",
-      "fixable": true
-    },
-    {
-      "rule": "*semi",
-      "severity": "off",
-      "fixable": true
-    }
-  ],
-  // Enable eslint for all supported languages
+  // 指定默认格式化器为 Prettier
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  //  ESLint 验证语言列表
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -85,6 +43,7 @@
     "pcss",
     "postcss"
   ],
+  // 搜索排除配置
   "search.exclude": {
     "**/node_modules": true,
     "**/dist": true,
@@ -94,6 +53,7 @@
     "**/.git": true,
     "**/.vscode": true
   },
+  //  i18n-ally 配置
   "i18n-ally.localesPaths": [
     "src/locales/lang"
   ],
@@ -104,11 +64,12 @@
   "i18n-ally.enabledParsers": [
     "json"
   ],
-  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.sourceLanguage": "zh-CN",
   "i18n-ally.displayLanguage": "zh-CN",
   "i18n-ally.enabledFrameworks": [
     "vue",
     "react"
   ],
+  //  Postman 配置
   "postman.settings.dotenv-detection-notification-visibility": false
 }

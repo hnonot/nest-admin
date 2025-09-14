@@ -8,5 +8,5 @@
 </template>
 
 <script setup lang="ts">
-  import { LockScreen } from '@/components/basic/lockscreen';
+import { LockScreen } from "@/components/basic/lockscreen";
 </script>
